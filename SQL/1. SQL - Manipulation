@@ -1,16 +1,42 @@
-CREATE TABLE books (
-id INTEGER,
-name TEXT,
-author TEXT,
-read DATE
+-- Creazione della tabella books_wishlist
+CREATE TABLE books_wishlist (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    author TEXT,
+    read DATE DEFAULT NULL
 );
 
-INSERT INTO (name, author, read)
-	VALUES (1, 'The_Metamorphosis', 'Kafka', '2023-08-12'), (2, 'Memories_Dreams_Reflections'. 'Jung', '2024-09-15);
+-- Inserimento dei primi due libri
+INSERT INTO books_wishlist (id, name, author, read)
+VALUES 
+(1, 'The Metamorphosis', 'Kafka', '2023-08-12'),
+(2, 'Memories, Dreams, Reflections', 'Jung', '2024-09-15');
 
-ALTER TABLE books
-ADD COLUMN rating INTEGER;
+-- Aggiunta della colonna rating con valore numerico predefinito
+ALTER TABLE books_wishlist
+ADD COLUMN rating INTEGER DEFAULT NULL;
 
-UPDATE friends
-SET rating = 9 WHERE id = 1
-SET rating = 8 WHERE id = 2;
+-- Aggiornamento delle valutazioni per i primi due libri
+UPDATE books_wishlist
+SET rating = 9 
+WHERE id = 1;
+
+UPDATE books_wishlist
+SET rating = 8 
+WHERE id = 2;
+
+-- Inserimento dei libri letti e non letti
+INSERT INTO books_wishlist (id, name, author, read, rating)
+VALUES 
+(3, 'Thus Spoke Zarathustra', 'Friedrich Nietzsche', '2023-01-01', NULL),
+(4, 'Beyond Good and Evil', 'Friedrich Nietzsche', '2023-01-01', NULL),
+(5, 'The Gay Science', 'Friedrich Nietzsche', NULL, NULL),
+(6, 'On the Genealogy of Morality', 'Friedrich Nietzsche', NULL, NULL),
+(7, 'The Dawn of Day', 'Friedrich Nietzsche', NULL, NULL),
+(8, 'The Will to Power', 'Friedrich Nietzsche', NULL, NULL),
+(9, 'Letters to Milena', 'Kafka', NULL, NULL),
+(10, 'Letters to His Father', 'Kafka', NULL, NULL),
+(11, 'The Trial', 'Kafka', NULL, NULL);
+
+-- Li voglio vedere in ordine di autore
+SELECT * FROM books_wishlist ORDER BY author;
