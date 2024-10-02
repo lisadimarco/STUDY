@@ -38,5 +38,35 @@ VALUES
 (10, 'Letters to His Father', 'Kafka', NULL, NULL),
 (11, 'The Trial', 'Kafka', NULL, NULL);
 
--- Li voglio vedere in ordine di autore
-SELECT * FROM books_wishlist ORDER BY author;
+-- Aggiunta di una colonna wishlist (1 = nella wishlist, 0 = non nella wishlist)
+ALTER TABLE books_wishlist
+ADD COLUMN wishlist BOOLEAN DEFAULT 1;
+
+-- Impostazione della wishlist a 0 per i libri che sono già stati letti
+UPDATE books_wishlist
+SET wishlist = 0
+WHERE read IS NOT NULL;
+
+-- Inserimento di libri di Sapolsky e altri libri mescolati
+INSERT INTO books_wishlist (id, name, author, read, rating, wishlist)
+VALUES 
+(12, 'Behave: The Biology of Humans at Our Best and Worst', 'Robert Sapolsky', NULL, NULL),
+(13, 'Why Zebras Don’t Get Ulcers', 'Robert Sapolsky', NULL, NULL),
+(14, 'A Primate’s Memoir', 'Robert Sapolsky', NULL, NULL),
+(15, 'The Portrait of Dorian Gray', 'Oscar Wilde', NULL, NULL),
+(16, 'Blindness', 'José Saramago', NULL, NULL),
+(17, 'The Theory of Everything', 'Stephen Hawking', NULL, NULL),
+(18, 'One, No One and One Hundred Thousand', 'Luigi Pirandello', NULL, NULL),
+(19, 'The Late Mattia Pascal', 'Luigi Pirandello', NULL, NULL),
+(20, 'The Man Who Mistook His Wife for a Hat', 'Oliver Sacks', NULL, NULL);
+
+
+SELECT id, name, author, read, rating, wishlist
+       CASE 
+           WHEN wishlist = 1 THEN 'Sì'
+           WHEN wishlist = 0 THEN 'No'
+       END AS wishlist_status
+FROM books_wishlist;
+
+
+
