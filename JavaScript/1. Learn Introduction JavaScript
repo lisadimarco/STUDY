@@ -1,0 +1,9 @@
+let profession = "teacher";  // Inizializzata con il valore "teacher"
+let age=30;  // Dichiarata ma non inizializzata
+console.log(profession);  // Risultato: "teacher"
+console.log(age);  // Risultato: undefined
+
+let fruits = ["apple", "banana", "cherry"];
+fruits[0];  // Restituisce "apple"
+fruits[1];  // Restituisce "banana"
+fruits[2];  // Restituisce "cherry"
