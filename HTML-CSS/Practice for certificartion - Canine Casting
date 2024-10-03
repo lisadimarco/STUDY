@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <meta charset ="utf-8">
   <head>
+    <meta charset="utf-8">
     <title>Paw-sitive</title>
-     <link href="styles.css" rel="stylesheet"/>
-    </head>
+    <link href="styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">Paw-sitive Model Search</h1>
+      <p id="description">Your dog for Our Dog Food Ad!</p>
+    </main>
+    <hr>
 
-    <body>
-      <main>
-        <h1 id="title"> Paw-sitive Model Search</h1>
-        <p id="description">Your Dog for Our Dog Food Ad!</p>
-        <hr>
+    <form id="survey-form" method="post" action='https://register-demo.freecodecamp.org'>
+      <fieldset>
+        <!-- Correzione qui: aggiunta di id name-label e discendente di #survey-form -->
+        <label id="name-label" for="name">Enter Your Dog's Name: 
+          <input id="name" name="dog-name" type="text" placeholder="es. Rex" required />
+        </label>
 
-<section>
+        <!-- Correzione qui: aggiunta di id number-label e discendente di #survey-form -->
+        <label id="number-label" for="number">How old is your cutie?</label>
+        <input type="number" id="number" name="age" max="25" min="1" placeholder="Age" required />
+
+        <label for="breed-label">What breed is your dog?</label>
+        <select id="dropdown" name="breed" required>
+          <option value="">(select one)</option>
+          <option value="1">German Shepherd</option>
+          <option value="2">Labrador</option>
+          <option value="3">Golden Retriever</option>
+          <option value="4">Bulldog</option>
+          <option value="5">Beagle</option>
+          <option value="6">Poodle</option>
+          <option value="7">Rottweiler</option>
+          <option value="8">Chihuahua</option>
+          <option value="9">Dachshund</option>
+          <option value="10">Siberian Husky</option>
+          <option value="11">Boxer</option>
+          <option value="12">Other</option>
+        </select>
+
+        <!-- Correzione qui: aggiunta di id email-label e discendente di #survey-form -->
+        <label id="email-label" for="email">Enter Your Email: 
+          <input id="email" name="email" type="email" placeholder="pretty@dog.com" required />
+        </label>
+
+        <label for="new-password">Create a New Password: 
+          <input id="new-password" name="new-password" type="password" pattern="[a-z0-5]{8,}" placeholder="Enter your password" required />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select your dog's gender</legend>
+        <label for="male">
+          <input type="radio" id="male" name="gender" value="male" required> Male
+        </label>
+        <label for="female">
+          <input type="radio" id="female" name="gender" value="female" required> Female
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select your dog's size:</legend>
+        <label for="small"><input type="radio" id="small" name="size" value="small" required>Small</label>
+        <label for="medium"><input type="radio" id="medium" name="size" value="medium" required>Medium</label>
+        <label for="big"><input type="radio" id="big" name="size" value="big" required>Big</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select your dog's skills (you can choose more than one):</legend>
+        <label for="obedience">
+          <input type="checkbox" id="obedience" name="skills" value="obedience"> Obedience training
+        </label>
+        <label for="agility">
+          <input type="checkbox" id="agility" name="skills" value="agility"> Agility training
+        </label>
+        <label for="search-rescue">
+          <input type="checkbox" id="search-rescue" name="skills" value="search-rescue"> Search and rescue
+        </label>
+        <label for="therapy">
+          <input type="checkbox" id="therapy" name="skills" value="therapy"> Therapy dog
+        </label>
+        <label for="tracking">
+          <input type="checkbox" id="tracking" name="skills" value="tracking"> Tracking
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <label for="dog-picture">Upload your dog's picture: 
+          <input id="dog-picture" type="file" name="file" />
+        </label>
+
+        <label for="bio">Tell us about him:
+          <textarea id="bio" name="bio" rows="3" cols="30" placeholder="Why should we choose you?"></textarea>
+        </label>
+      </fieldset>
+      
+      <label for="terms-and-conditions">
+        <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" value="terms-and-conditions" /> 
+        I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
+      </label>
+
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
