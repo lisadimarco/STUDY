@@ -1,0 +1,160 @@
+body {
+    font-family: 'Times New Roman';
+background-color: antiquewhite;
+    text-align: left;
+    display: inline-block;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 35px;
+  margin-top: 0;
+  margin-bottom: 15px;
+    font-family: 'Times New Roman'; 
+}
+
+
+main {
+  text-align: center;
+    background-color: antiquewhite;
+    display: inline-block;
+}
+
+form {
+  width: 80%;
+  background: linear-gradient(to bottom, burlywood, #f5deb3);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  max-width: 500px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  height: 2px;
+  background-color: burlywood;
+  border-color:darkgoldenrod;
+}
+
+fieldset {
+  margin-top: 15px;
+      width: 80%; /* Regola la larghezza per adattarla al layout */
+  margin: 20px auto; /* Centra i fieldset e aggiunge spazio verticale */
+  padding: 15px; /* Aggiunge spazio interno per un look più pulito */
+  border: 1px solid #ccc; /* Bordo leggero per definire i gruppi */
+  border-radius: 5px; 
+}
+
+
+legend {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+    font-weight: bold;
+  text-align: left;
+}
+
+a {
+color: darkgoldenrod;
+}
+
+label {
+  display: flex;
+  align-items: center; /* Centra verticalmente l'input rispetto al label */
+  width: auto; /* Lascia che il label si adatti al contenuto */
+  margin-right: 10px;/* Spazio tra label e input */
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+input, select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.name-label, .number-label, .email-label, .breed-label, .new-password {
+  display: block;
+  width: 75%;
+  margin: 10px 0;
+  text-align: left;
+}
+
+
+.dog-gender label, .dog-size label, .dog-skill label {
+  display: inline-block;
+  width: 50%;
+  margin-right: 10px;
+  text-align: left;
+  align-items: center;
+}
+
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: middle;
+align-content: right;
+    width: 25%;
+    transform: scale(1.2);
+}
+
+/* Stile per il label dei termini e condizioni */
+.terms-label {
+  display: flex;
+  align-items: center; /* Allinea il checkbox e il testo verticalmente */
+  font-size: 16px; /* Dimensione del testo del label */
+}
+
+.terms-label a {
+  margin-left: 5px; /* Aggiunge uno spazio tra il testo e il link */
+}
+
+/* Stile per il checkbox */
+.inline {
+  margin-right: 10px; /* Spazio tra checkbox e testo del label */
+  transform: scale(1.2); /* Ingrandisce leggermente il checkbox */
+}
+
+#submit {
+  margin-top: 20px; /* Spazio sopra il pulsante di submit */
+  padding: 10px 20px; /* Padding per migliorare l'aspetto */
+  font-size: 16px;
+  background-color: darkgoldenrod;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+    
+}
+
+h1, legend {
+    color: #6b4f4f;
+}
+
+.error-message {
+    color: #6b4f4f;
+    font-size: 14px;
+}
+
+.success-message {
+    color: brown;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: darkgoldenrod;
+    transition: border-color 0.3s;
+}
