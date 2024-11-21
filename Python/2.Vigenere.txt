@@ -1,0 +1,137 @@
+Spiegazione dettagliata del codice, delle funzioni e della sintassi utilizzati.
+
+
+
+## **Struttura del Codice**
+
+### **1. Variabili iniziali**
+- **`text`**: La stringa `"mrttaqrhknsw ih puggrur"` rappresenta il testo crittografato da decifrare.
+- **`custom_key`**: La chiave `"happycoding"` viene utilizzata per decifrare il messaggio attraverso la logica della crittografia di Vigenère.
+
+---
+
+### **2. Funzione `vigenere`**
+La funzione principale implementa l'algoritmo di Vigenère, un metodo di cifratura basato su un testo chiave ripetuto.
+
+#### **Parametri della funzione**
+- **`message`**: Il messaggio da cifrare o decifrare.
+- **`key`**: La chiave di cifratura.
+- **`direction`**: Un valore intero che determina la direzione dell'operazione:
+  - `1` per cifrare.
+  - `-1` per decifrare.
+
+#### **Logica della funzione**
+1. **Inizializzazione delle variabili**:
+   - **`key_index = 0`**: Tiene traccia del carattere della chiave da utilizzare.
+   - **`alphabet`**: Contiene tutte le lettere minuscole dell'alfabeto inglese.
+   - **`final_message`**: Accumula il risultato finale (testo cifrato o decifrato).
+
+2. **Iterazione sui caratteri di `message`**:
+   - **`for char in message.lower():`**:
+     - Converte il messaggio in minuscolo per evitare problemi di distinzione tra maiuscole e minuscole.
+
+3. **Gestione dei caratteri non alfabetici**:
+   - **`if not char.isalpha():`**:
+     - Controlla se il carattere non è una lettera.
+     - Se è vero, aggiunge direttamente il carattere a `final_message`.
+
+4. **Crittografia o decodifica**:
+   - **Trovare il carattere della chiave**:
+     - **`key_char = key[key_index % len(key)]`**:
+       - Utilizza l'indice corrente `key_index` per selezionare il carattere della chiave.
+       - Utilizza l'operatore modulo `%` per ripetere la chiave ciclicamente.
+
+   - **Incrementare `key_index`**:
+     - **`key_index += 1`**:
+       - Passa al carattere successivo della chiave.
+
+   - **Calcolo dello shift (`offset`)**:
+     - **`offset = alphabet.index(key_char)`**:
+       - Trova l'indice del carattere della chiave nella stringa `alphabet`.
+
+   - **Determinare l'indice finale**:
+     - **`new_index = (index + offset * direction) % len(alphabet)`**:
+       - Somma o sottrae lo `offset` all'indice del carattere corrente (`index`), a seconda della direzione (`direction`).
+       - Utilizza il modulo `% len(alphabet)` per mantenere l'indice nei limiti dell'alfabeto.
+
+   - **Aggiungere il carattere cifrato o decifrato**:
+     - **`final_message += alphabet[new_index]`**:
+       - Aggiunge il nuovo carattere alla stringa finale.
+
+5. **Restituzione del risultato**:
+   - **`return final_message`**:
+     - La funzione restituisce il testo cifrato o decifrato.
+
+---
+
+### **3. Funzione `encrypt`**
+- **Definizione**:
+  ```python
+  def encrypt(message, key):
+      return vigenere(message, key)
+  ```
+- **Funzione wrapper**:
+  - Chiama la funzione `vigenere` con `direction=1` (valore predefinito).
+  - Restituisce il messaggio cifrato.
+
+---
+
+### **4. Funzione `decrypt`**
+- **Definizione**:
+  ```python
+  def decrypt(message, key):
+      return vigenere(message, key, -1)
+  ```
+- **Funzione wrapper**:
+  - Chiama la funzione `vigenere` con `direction=-1`.
+  - Restituisce il messaggio decifrato.
+
+---
+
+### **5. `print` con stringhe formattate**
+- Le chiamate a `print()` utilizzano **f-string** per includere variabili nelle stringhe:
+  - **Esempio**:
+    ```python
+    print(f'\nEncrypted text: {text}')
+    ```
+    - Il prefisso `f` indica che è una stringa formattata.
+    - Le variabili (es. `text`) sono inserite direttamente all'interno delle parentesi graffe `{}`.
+
+- **Sequenza di newline `\n`**:
+  - Il carattere speciale `\n` viene utilizzato per aggiungere una nuova riga prima della stringa stampata.
+
+---
+
+## **Metodi e Sintassi Utilizzati**
+
+1. **`lower()`**:
+   - Metodo che converte una stringa in lettere minuscole.
+   - Usato su `message` per trattare le lettere in modo uniforme.
+
+2. **`isalpha()`**:
+   - Metodo che verifica se un carattere è una lettera alfabetica.
+   - Utilizzato per gestire separatamente i caratteri non alfabetici (spazi, punteggiatura).
+
+3. **`find()` e `index()`**:
+   - **`find()`**: Restituisce la posizione di un carattere nella stringa o `-1` se non trovato.
+   - **`index()`**: Simile a `find()`, ma genera un errore se il carattere non è presente.
+   - Entrambi sono utilizzati per trovare la posizione di un carattere nell'alfabeto.
+
+4. **Operatori matematici**:
+   - **`%`**: Operatore modulo, usato per gestire l'indice in modo circolare.
+   - **`+` e `*`**: Utilizzati per sommare o moltiplicare valori nel calcolo del nuovo indice.
+
+---
+
+### **Esempio di Output**
+Con i valori forniti:
+- **`text`**: `"mrttaqrhknsw ih puggrur"`
+- **`custom_key`**: `"happycoding"`
+
+Il codice stamperà:
+```
+Encrypted text: mrttaqrhknsw ih puggrur
+Key: happycoding
+
+Decrypted text: welcomeback to python
+```
