@@ -30,7 +30,8 @@ VALUES
 (3, 'Perché dormiamo', 'Matthew Walker', '2024-12-30', 9),
 (4, 'Io, te e amore', 'Stefania Andreoli', '2024-07-26', 7),
 (5, 'Diagnosi psicodinamica e tecnica analitica', 'Alfred Adler', '2024-03-26', 7),
-(6, 'Lo squalificato', 'Osamu Dazai', '2024-02-15', 9);
+(6, 'Lo squalificato', 'Osamu Dazai', '2024-02-15', 9)
+(7, 'Python Crash Course', 'Eric Matthes', '2024-12-29');
 
 
 CREATE TABLE books_2023 (
