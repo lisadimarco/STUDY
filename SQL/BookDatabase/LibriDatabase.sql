@@ -12,7 +12,7 @@ CREATE TABLE books_2024 (
 -- Inserimento dei primi due libri
 INSERT INTO books_2024 (id, name, author, read)
 VALUES 
-(1, 'Memorie, sogni, riflessioni', 'Carl Gustav Jung', '2024-09-15');
+(1, 'Memorie, sogni, riflessioni', 'Carl Gustav Jung', '2024-12-30');
 
 -- Aggiunta della colonna rating con valore numerico predefinito
 ALTER TABLE books_2024
@@ -26,12 +26,10 @@ WHERE id = 1;
 -- Inserimento dei libri letti
 INSERT INTO books_2024 (id, name, author, read, rating)
 VALUES 
-(2, 'Donne che corrono coi lupi', 'Clarissa Pinkola Estés', '2024-11-10', 8),
-(3, 'Perché dormiamo', 'Matthew Walker', '2024-12-30', 9),
-(4, 'Io, te e amore', 'Stefania Andreoli', '2024-07-26', 7),
-(5, 'Diagnosi psicodinamica e tecnica analitica', 'Alfred Adler', '2024-03-26', 7),
-(6, 'Lo squalificato', 'Osamu Dazai', '2024-02-15', 9)
-(7, 'Python Crash Course', 'Eric Matthes', '2024-12-29');
+(2, 'Io, te e amore', 'Stefania Andreoli', '2024-07-26', 7),
+(3, 'Diagnosi psicodinamica e tecnica analitica', 'Alfred Adler', '2024-03-26', 7),
+(4, 'Lo squalificato', 'Osamu Dazai', '2024-02-15', 9)
+(5, 'Python Crash Course', 'Eric Matthes', '2024-11-29');
 
 
 CREATE TABLE books_2023 (
